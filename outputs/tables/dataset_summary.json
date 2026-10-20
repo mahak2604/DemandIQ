@@ -1,0 +1,16 @@
+{
+  "raw_rows": 1017209,
+  "raw_stores": 1115,
+  "stores_kept": 935,
+  "open_zero_sales_removed": 54,
+  "calendar_rows": 880770,
+  "open_days": 732379,
+  "model_rows": 732379,
+  "date_min": "2013-01-01",
+  "date_max": "2015-07-31",
+  "mean_sales": 7005.68803310854,
+  "median_sales": 6411.0,
+  "promo_share": 0.44729299993582555,
+  "promo_lift_chain": 0.397840437460931,
+  "n_features_built": 24
+}

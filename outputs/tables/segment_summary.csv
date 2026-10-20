@@ -1,0 +1,5 @@
+segment_name,avg_sales,promo_lift,volatility,saturday_share,december_lift,log_comp_distance,stores
+High-volume flagships,9292.151,0.28,0.221,0.93,0.205,6.761,192
+Promotion-driven,5997.245,0.717,0.374,0.488,0.314,8.461,138
+Weekend & seasonal shoppers,6477.081,0.312,0.257,0.951,0.335,8.452,284
+Steady neighbourhood stores,6381.103,0.492,0.291,0.707,0.233,7.084,321

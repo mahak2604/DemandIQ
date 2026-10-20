@@ -1,0 +1,112 @@
+STEP 1  data preparation
+  saved json    dataset_summary.json
+  saved figure  fig01_sales_trend.png
+  saved figure  fig02_weekday_promo.png
+  saved figure  fig03_seasonality_calendar.png
+  saved figure  fig04_store_types.png
+    raw_rows                     1017209
+    raw_stores                   1115
+    stores_kept                  935
+    open_zero_sales_removed      54
+    calendar_rows                880770
+    open_days                    732379
+    model_rows                   732379
+    date_min                     2013-01-01
+    date_max                     2015-07-31
+    mean_sales                   7005.68803310854
+    median_sales                 6411.0
+    promo_share                  0.44729299993582555
+    promo_lift_chain             0.397840437460931
+    n_features_built             24
+  -> done in 9s
+
+STEP 2  store segmentation (K-Means)
+  saved figure  fig05_kmeans_choice.png
+  saved figure  fig06_segment_profiles.png
+  saved figure  fig07_segment_scatter.png
+  saved table   segment_summary.csv
+  saved table   store_segments.csv
+  saved json    kmeans_selection.json
+                             avg_sales  promo_lift  volatility  saturday_share  december_lift  log_comp_distance  stores
+segment_name                                                                                                            
+High-volume flagships          9292.15        0.28        0.22            0.93           0.21               6.76     192
+Promotion-driven               5997.25        0.72        0.37            0.49           0.31               8.46     138
+Weekend & seasonal shoppers    6477.08        0.31        0.26            0.95           0.34               8.45     284
+Steady neighbourhood stores    6381.10        0.49        0.29            0.71           0.23               7.08     321
+  -> done in 5s
+
+STEP 3  demand forecasting
+  saved json    demand_splits.json
+    {'train': 603437, 'valid': 44335, 'test': 49268}
+    grid {'max_leaf_nodes': 31, 'min_samples_leaf': 40, 'l2_regularization': 0.0}    20s
+    grid {'max_leaf_nodes': 31, 'min_samples_leaf': 40, 'l2_regularization': 1.0}    19s
+    grid {'max_leaf_nodes': 63, 'min_samples_leaf': 40, 'l2_regularization': 0.0}    24s
+    grid {'max_leaf_nodes': 63, 'min_samples_leaf': 40, 'l2_regularization': 1.0}    27s
+    grid {'max_leaf_nodes': 127, 'min_samples_leaf': 40, 'l2_regularization': 0.0}    30s
+    grid {'max_leaf_nodes': 127, 'min_samples_leaf': 40, 'l2_regularization': 1.0}    31s
+  saved table   gbm_tuning_grid.csv
+    best GBM params: {'max_leaf_nodes': 127, 'min_samples_leaf': 40, 'l2_regularization': 0.0, 'max_iter': 400}
+  saved figure  fig09_loss_curve.png
+    Naive (same day last week)   test MAPE 31.55%  (0s)
+    Historical average           test MAPE 10.22%  (0s)
+    Ridge regression             test MAPE 12.40%  (5s)
+    Random Forest                test MAPE  8.15%  (97s)
+    Gradient Boosting            test MAPE  7.96%  (47s)
+  saved table   demand_model_results.csv
+  saved json    quantile_coverage.json
+    P10-P90 interval covers 72.9% of test days (target 80%)
+  saved json    forecast_windows.json
+  saved figure  fig08_model_comparison.png
+  saved figure  fig10_forecast_examples.png
+  saved figure  fig11_error_analysis.png
+  -> done in 462s
+
+STEP 4  stockout risk
+  saved json    inventory_simulation_summary.json
+    {'simulated_store_days': 708186, 'stockout_day_rate_%': 8.57, 'stockout_rate_promo_days_%': 14.14, 'stockout_rate_non_promo_%': 4.02, 'fill_rate_%': 95.73, 'risk_rows': 367455, 'positive_rate_%': 18.58}
+  saved figure  fig12_inventory_replay.png
+    rows train 256190  valid 57035  test 54230   positives 19.1%
+    Manager rule of thumb    test ROC-AUC 0.563  PR-AUC 0.197  recall 0.55  precision 0.20
+    Logistic Regression      test ROC-AUC 0.849  PR-AUC 0.492  recall 0.77  precision 0.39
+    Random Forest            test ROC-AUC 0.875  PR-AUC 0.634  recall 0.53  precision 0.56
+    Gradient Boosting        test ROC-AUC 0.873  PR-AUC 0.610  recall 0.60  precision 0.50
+  saved table   stockout_model_results.csv
+  saved json    stockout_confusion.json
+  saved figure  fig13_roc_pr_curves.png
+  saved figure  fig14_confusion_calibration.png
+  saved table   risk_bands.csv
+  saved figure  fig15_risk_bands.png
+  -> done in 49s
+
+STEP 5  reorder policies
+  saved table   emergency_threshold_tuning.csv
+    emergency threshold chosen on validation: 0.15
+  saved table   policy_comparison.csv
+  saved json    policy_settings.json
+                   policy  stockout_day_rate_%  fill_rate_%  avg_stock_days  emergency_orders  total_cost  cost_change_%
+          A. Manager rule                 7.51        96.57            1.93                 0  4606891.60           0.00
+     B. DemandIQ forecast                 2.66        98.82            2.15                 0  2268941.94         -50.75
+C. DemandIQ + risk alerts                 1.50        99.58            2.32              2380  1687269.73         -63.38
+  saved table   policy_by_segment.csv
+  saved table   reorder_recommendations.csv
+  saved figure  fig16_policy_comparison.png
+  saved figure  fig17_cost_breakdown.png
+  saved figure  fig18_policy_store_example.png
+  saved table   policy_frontier.csv
+  saved figure  fig24_tradeoff_frontier.png
+  -> done in 9s
+
+STEP 6  explainability (SHAP)
+  saved table   shap_importance_demand.csv
+  saved figure  fig19_shap_demand_global.png
+  saved table   shap_groups_demand.csv
+  saved figure  fig20_shap_demand_beeswarm.png
+  saved figure  fig21_shap_demand_local.png
+  saved figure  fig22_promo_effect_by_segment.png
+  saved table   promo_uplift_by_segment.csv
+  saved table   shap_additivity_check.csv
+  saved table   shap_importance_stockout.csv
+  saved figure  fig23_shap_risk_beeswarm.png
+  -> done in 68s
+
+Pipeline finished in 10.0 minutes.

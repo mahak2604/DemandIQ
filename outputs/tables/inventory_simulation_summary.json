@@ -1,0 +1,9 @@
+{
+  "simulated_store_days": 708186,
+  "stockout_day_rate_%": 8.573030249115346,
+  "stockout_rate_promo_days_%": 14.143584620555979,
+  "stockout_rate_non_promo_%": 4.024726507893758,
+  "fill_rate_%": 95.72818402703193,
+  "risk_rows": 367455,
+  "positive_rate_%": 18.582955736076524
+}

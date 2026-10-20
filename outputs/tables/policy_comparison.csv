@@ -1,0 +1,4 @@
+policy,stockout_day_rate_%,fill_rate_%,avg_stock_days,lost_sales_value,regular_orders,emergency_orders,cost_lost_sales,cost_holding,cost_ordering,total_cost,stockout_change_%,cost_change_%,stock_change_%
+A. Manager rule,7.51,96.567,1.926,12176463.628,16818,0,3652939.088,533502.509,420450.0,4606891.597,0.0,0.0,0.0
+B. DemandIQ forecast,2.657,98.824,2.155,4171289.344,16819,0,1251386.803,597080.139,420475.0,2268941.943,-64.622,-50.749,11.868
+C. DemandIQ + risk alerts,1.498,99.576,2.323,1505541.645,16560,2380,451662.494,643107.241,592500.0,1687269.735,-80.054,-63.375,20.6

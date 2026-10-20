@@ -1,0 +1,13 @@
+policy,segment,stockout_day_rate_%,segment_name
+A. Manager rule,0,6.364,High-volume flagships
+A. Manager rule,1,9.439,Promotion-driven
+A. Manager rule,2,7.098,Weekend & seasonal shoppers
+A. Manager rule,3,7.735,Steady neighbourhood stores
+B. DemandIQ forecast,0,2.74,High-volume flagships
+B. DemandIQ forecast,1,2.336,Promotion-driven
+B. DemandIQ forecast,2,3.068,Weekend & seasonal shoppers
+B. DemandIQ forecast,3,2.381,Steady neighbourhood stores
+C. DemandIQ + risk alerts,0,1.444,High-volume flagships
+C. DemandIQ + risk alerts,1,1.264,Promotion-driven
+C. DemandIQ + risk alerts,2,1.804,Weekend & seasonal shoppers
+C. DemandIQ + risk alerts,3,1.359,Steady neighbourhood stores

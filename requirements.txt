@@ -1,0 +1,16 @@
+# Machine learning pipeline
+pandas>=2.0
+numpy>=1.24
+scikit-learn>=1.4
+matplotlib>=3.7
+pyarrow>=14.0
+joblib>=1.3
+shap>=0.45
+
+# Dashboard
+streamlit>=1.30
+
+# Report and presentation generators (optional)
+python-docx>=1.1
+python-pptx>=0.6.23
+pillow>=10.0

@@ -1,0 +1,9 @@
+Split,Model,ROC-AUC,PR-AUC,Precision,Recall,F1,Brier,Threshold
+Validation,Manager rule of thumb,0.6411,0.264,0.2668,0.6404,0.3767,0.233,0.3317
+Test,Manager rule of thumb,0.5634,0.1966,0.2036,0.5468,0.2967,0.2394,0.3317
+Validation,Logistic Regression,0.7806,0.4494,0.3376,0.751,0.4658,0.2018,0.4989
+Test,Logistic Regression,0.8493,0.4916,0.3897,0.7709,0.5177,0.159,0.4989
+Validation,Random Forest,0.8585,0.6512,0.6264,0.5164,0.5661,0.1252,0.6073
+Test,Random Forest,0.8755,0.6338,0.5567,0.5347,0.5455,0.1223,0.6073
+Validation,Gradient Boosting,0.8544,0.6534,0.6112,0.5339,0.5699,0.1007,0.3014
+Test,Gradient Boosting,0.8733,0.6098,0.5016,0.6011,0.5468,0.0984,0.3014

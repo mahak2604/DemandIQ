@@ -1,0 +1,14 @@
+feature,label,mean_abs_shap
+cover_ratio,Cover ratio (stock+due / forecast),1.0304659590786913
+stock_days,Stock on hand (days),0.9478960193633992
+promo_days_next_3,Promotion days ahead,0.5743848978238829
+forecast_uncertainty,Forecast uncertainty,0.44955265612463313
+forecast_3d_days,"Forecast demand, next 3 days",0.44157515794397867
+days_to_next_delivery,Days to next delivery,0.3593630517674231
+incoming_3d_days,Deliveries due in 3 days,0.3383184084697962
+day_of_week,Day of week,0.33454459879987564
+delivery_overdue,Delivery overdue,0.2203339020265721
+demand_cv,Demand volatility,0.09263128385896192
+segment,Store segment,0.04900839572859985
+stockouts_last_7,Stockouts in last 7 days,0.032880036595764064
+open_days_next_3,Trading days ahead,0.024330581376348324

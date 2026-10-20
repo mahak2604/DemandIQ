@@ -1,0 +1,28 @@
+feature,label,mean_abs_shap
+store_dow_avg,Store's usual sales for this weekday,0.21950193039525637
+Promo,Promotion today,0.14064547705195246
+roll_mean_28,"Avg. sales, 4 weeks ago window",0.037388302236416135
+day_of_month,Day of month,0.03573810419967346
+lag_14,Sales same day 2 weeks ago,0.025114911419440573
+day_of_week,Day of week,0.024008142246884082
+closed_prev_day,Store closed yesterday,0.020390158230772452
+store_avg_sales,Store's average sales,0.01839051757363889
+year,Year,0.015895675735112212
+lag_7,Sales same day last week,0.015100513713053704
+lag_28,Sales same day 4 weeks ago,0.01223932827761466
+closed_next_day,Store closed tomorrow,0.011400701949220922
+roll_mean_7,"Avg. sales, week before last",0.01107212703219787
+store_promo_lift,Store's promo sensitivity,0.008688246251440818
+SchoolHoliday,School holiday,0.00852397232089586
+week_of_year,Week of year,0.0074483868450201775
+store_type,Store type,0.004454243714267575
+log_competition_distance,Distance to competitor,0.004411576116136093
+assortment,Assortment,0.004265580140728519
+month,Month,0.00349036558443399
+promo2_active,Loyalty promo (Promo2) active,0.0031472682890299687
+trend_ratio,Recent trend (1 wk vs 4 wk),0.0030457060239351425
+competition_months,Months since competitor opened,0.00271507857886933
+Promo2,Store in Promo2 programme,0.0022324576236337473
+roll_std_28,Sales volatility (4 weeks),0.0016141775410552707
+segment,Store segment,0.0010805757130041723
+state_holiday_type,Public holiday type,0.0006437859143082212
